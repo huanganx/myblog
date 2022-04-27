@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    HHHHH
   </div>
 </template>
 
@@ -13,3 +12,10 @@ export default defineComponent({
   }
 })
 </script>
+
+<style>
+.home {
+  height: 100vh;
+  background: url('@/assets/logo.png');
+}
+</style>
