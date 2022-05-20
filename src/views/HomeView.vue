@@ -1,134 +1,22 @@
 <template>
-  <div :class="$style.container">
-    <h1 class="welcome">
-      <span class="first-line">I Am HuangAnXuan</span>
-      <span class="second-line">Welcome To My Website</span>
-    </h1>
-    <p class="motto" :class="{ show: show }">认真做好每一份细节，用心写好每一段代码</p>
-    <div class="into" :class="{ show: show }">
-      <i class="iconfont icon-jinru"></i>
-    </div>
+  <div class="about">
+    <h1>This is an home page</h1>
+    <div class="btn" @click="$router.go(-1)">返回欢迎页</div>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
-
-export default defineComponent({
-  name: 'HomeView',
-  data () {
-    return {
-      show: false
-    }
-  },
-  mounted () {
-    setTimeout(() => {
-      this.show = true
-    }, 4000)
-  }
-})
-</script>
-
-<style lang="scss" module>
-.container {
+<style lang="scss">
+.about {
   height: 100%;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  &::after {
-    position: absolute;
-    left: -20px;
-    right: -20px;
-    top: -20px;
-    bottom: -20px;
-    background: url('~@/assets/background.jpeg') no-repeat 50%/cover;
-    -webkit-filter: blur(10px);
-    filter: blur(10px);
-    content: "";
-  }
-  & > * {
-    position: relative;
-    z-index: 1;
-  }
-  :global {
-    .motto {
-      margin: 20px 0;
-      font-size: 20px;
-      color: #fff;
-      text-shadow: 1px 1px 5px rgb(0 0 0 / 50%);
-      opacity: 0;
-      transition: ease-in .2s opacity;
-      &.show {
-        opacity: 1;
-      }
-    }
-    .into {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 44px;
-      width: 44px;
-      font-size: 16px;
-      font-weight: 600;
-      color: #333;
-      background-color: #fff;
-      border-radius: 24px;
-      box-shadow: 1px 1px 5px rgb(0 0 0 / 50%);
-      opacity: 0;
-      transition: ease .2s;
-      cursor: pointer;
-      &:hover {
-        width: 100px;
-        .iconfont {
-          display: none;
-        }
-        &::after {
-          content: '开始使用';
-          white-space: nowrap;
-          font-weight: 500;
-        }
-      }
-      &.show {
-        opacity: 1;
-      }
-    }
-  }
-}
-</style>
-<style lang="scss">
-@keyframes typing {
-  from { width: 0 }
-}
-
-@keyframes caret {
-  50% { border-right-color: currentColor; }
-}
-
-h1.welcome {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  line-height: 70px;
-  font-weight: 700;
-  font-size: 50px;
   color: #fff;
-  .first-line, .second-line {
-    font: bold 100% Consolas, Monaco, monospace;
-    overflow: hidden;
-    border-right: 1px solid transparent;
-    font-family: Consolas,Monaco,Monospace;
-    white-space: nowrap;
-    text-shadow: 3px 3px 5px rgb(0 0 0 / 50%);
-  }
-  .first-line {
-    width: 16ch;
-    animation: typing 2s steps(16) 0s backwards,caret .5s steps(1) 0s 4 forwards;
-  }
-  .second-line {
-    width: 22ch;
-    animation: typing 2s steps(22) 2s backwards,caret .5s steps(1) 2s 4 forwards;
+  .btn {
+    margin: 20px 0;
+    cursor: pointer;
   }
 }
 </style>
