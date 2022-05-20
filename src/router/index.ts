@@ -18,6 +18,12 @@ const routes: Array<RouteRecordRaw> = [
         meta: { level: 2 }
       }
     ]
+  },
+  {
+    path: '/blog',
+    name: 'blog',
+    component: () => import('../views/BlogView.vue'),
+    meta: { level: 3 }
   }
 ]
 

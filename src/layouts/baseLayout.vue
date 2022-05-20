@@ -59,7 +59,7 @@ export default defineComponent({
       width: 100%;
       height: 100%;
       will-change: transform;
-      transition: all 300ms cubic-bezier(.55,0,.1,1);
+      transition: all 250ms cubic-bezier(.55,0,.1,1);
       position: absolute;
       backface-visibility: hidden;
     }
