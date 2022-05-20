@@ -5,6 +5,9 @@
       <span class="second-line">Welcome To My Website</span>
     </h1>
     <p class="motto" :class="{ show: show }">认真做好每一份细节，用心写好每一段代码</p>
+    <div class="into" :class="{ show: show }">
+      <i class="iconfont icon-jinru"></i>
+    </div>
   </div>
 </template>
 
@@ -50,12 +53,43 @@ export default defineComponent({
     z-index: 1;
   }
   :global {
-    p.motto {
+    .motto {
+      margin: 20px 0;
       font-size: 20px;
       color: #fff;
       text-shadow: 1px 1px 5px rgb(0 0 0 / 50%);
       opacity: 0;
       transition: ease-in .2s opacity;
+      &.show {
+        opacity: 1;
+      }
+    }
+    .into {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 44px;
+      width: 44px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #333;
+      background-color: #fff;
+      border-radius: 24px;
+      box-shadow: 1px 1px 5px rgb(0 0 0 / 50%);
+      opacity: 0;
+      transition: ease .2s;
+      cursor: pointer;
+      &:hover {
+        width: 100px;
+        .iconfont {
+          display: none;
+        }
+        &::after {
+          content: '开始使用';
+          white-space: nowrap;
+          font-weight: 500;
+        }
+      }
       &.show {
         opacity: 1;
       }
@@ -73,7 +107,6 @@ export default defineComponent({
 }
 
 h1.welcome {
-  margin: 20px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
