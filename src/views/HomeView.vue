@@ -4,6 +4,7 @@
       <span class="first-line">I Am HuangAnXuan</span>
       <span class="second-line">Welcome To My Website</span>
     </h1>
+    <p class="motto" :class="{ show: show }">认真做好每一份细节，用心写好每一段代码</p>
   </div>
 </template>
 
@@ -14,13 +15,13 @@ export default defineComponent({
   name: 'HomeView',
   data () {
     return {
-      loading: true
+      show: false
     }
   },
   mounted () {
     setTimeout(() => {
-      this.loading = false
-    }, 3000)
+      this.show = true
+    }, 4000)
   }
 })
 </script>
@@ -32,6 +33,7 @@ export default defineComponent({
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   &::after {
     position: absolute;
     left: -20px;
@@ -47,6 +49,18 @@ export default defineComponent({
     position: relative;
     z-index: 1;
   }
+  :global {
+    p.motto {
+      font-size: 20px;
+      color: #fff;
+      text-shadow: 1px 1px 5px rgb(0 0 0 / 50%);
+      opacity: 0;
+      transition: ease-in .2s opacity;
+      &.show {
+        opacity: 1;
+      }
+    }
+  }
 }
 </style>
 <style lang="scss">
@@ -59,6 +73,7 @@ export default defineComponent({
 }
 
 h1.welcome {
+  margin: 20px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
